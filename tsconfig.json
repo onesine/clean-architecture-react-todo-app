@@ -27,7 +27,8 @@
         "forceConsistentCasingInFileNames": true,
         "noEmitOnError": true,
         "incremental": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["vitest/globals", "@testing-library/jest-dom", "cypress"]
     },
     "include": ["src", "**/*.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
