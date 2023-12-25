@@ -28,7 +28,17 @@
         "noEmitOnError": true,
         "incremental": true,
         "esModuleInterop": true,
-        "types": ["vitest/globals", "@testing-library/jest-dom", "cypress"]
+        "types": ["vitest/globals", "@testing-library/jest-dom", "cypress", "reflect-metadata"],
+        "paths": {
+            "@ui/*": ["./src/components/ui/*"],
+            "@icon/*": ["./src/components/icons/*"],
+            "@model/*": ["./src/core/domain/model/*"],
+            "@repositoryInt/*": ["./src/core/domain/repository/*"],
+            "@repositoryImpl/*": ["./src/core/data/repository/*"],
+            "@useCase/*": ["./src/core/domain/useCase/*"],
+            "@dataSource/*": ["./src/core/data/dataSource/*"],
+            "@ioc/*": ["./src/core/ioc/*"]
+        }
     },
     "include": ["src", "**/*.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
