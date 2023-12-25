@@ -3,7 +3,7 @@
 // Welcome to Cypress!
 //
 // This spec file contains a variety of sample tests
-// for a todo list app that are designed to demonstrate
+// for a task list app that are designed to demonstrate
 // the power of writing tests in Cypress.
 //
 // To learn more about how Cypress works and
@@ -20,7 +20,7 @@ describe("example to-do app", () => {
         cy.visit("https://example.cypress.io/todo");
     });
 
-    it("displays two todo items by default", () => {
+    it("displays two task items by default", () => {
         // We use the `cy.get()` command to get all elements that match the selector.
         // Then, we use `should` to assert that there are two matched items,
         // which are the two default items.
@@ -34,7 +34,7 @@ describe("example to-do app", () => {
         cy.get(".todo-list li").last().should("have.text", "Walk the dog");
     });
 
-    it("can add new todo items", () => {
+    it("can add new task items", () => {
         // We'll store our item text in a variable so we can reuse it
         const newItem = "Feed the cat";
 

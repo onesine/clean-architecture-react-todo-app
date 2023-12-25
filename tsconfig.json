@@ -37,7 +37,10 @@
             "@repositoryImpl/*": ["./src/core/data/repository/*"],
             "@useCase/*": ["./src/core/domain/useCase/*"],
             "@dataSource/*": ["./src/core/data/dataSource/*"],
-            "@ioc/*": ["./src/core/ioc/*"]
+            "@ioc/*": ["./src/core/ioc/*"],
+            "@presentation/*": ["./src/core/presentation/*"],
+            "@libs/*": ["./src/libs/*"],
+            "@hooks/*": ["./src/hooks/*"],
         }
     },
     "include": ["src", "**/*.ts"],
