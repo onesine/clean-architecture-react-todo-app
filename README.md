@@ -1,7 +1,7 @@
 # Clean Architecture React Todo App
 
 <p align="center">
-    <a href="https://clean-architecture-react-todo-app.vercel.app/" target="_blank">
+    <a href="https://todo-app-onesine.vercel.app/" target="_blank">
       <img alt="React Tailwindcss Datepicker" src="https://raw.githubusercontent.com/onesine/clean-architecture-react-todo-app/master/public/screenshot-2023-12-25-at-16.41.56.png?raw=true">
     </a><br><br>
     Welcome to the Task Management application, a project highlighting the practical application of the fundamental principles of <strong>Clean Architecture</strong> and the <strong>MVVM</strong> model in the context of React. This project uses a simple task list as an example to illustrate how these architectural concepts can be integrated into Front-End application development like React.
@@ -22,7 +22,7 @@
 -   ✅ Using dependency injection
 -   ✅ Using the IoC container to resolve class and interface
 -   ✅ Using localstorage as a datasource
--   ⬜ Folder structure documentation
+-   ⬜ Confirm remove
 -   ⬜ Toast
 -   ⬜ Task filter (complete, incomplete, category)
 -   ⬜ Loading (fetching, submission)
@@ -30,13 +30,14 @@
 -   ⬜ Unit test (vitest + react testing library)
 -   ⬜ Integration or end 2 end test (cypress)
 -   ⬜ Global state usage
+-   ⬜ Folder structure documentation
 -   ⬜ Localization(i18n)
 -   ⬜ Using business logic in another project (Mobile development react-native)
 -   ⬜ Add other datasource implementations (firebase, rest API, GraphQL, ...)
 
 ## Online Demo
 
-You can find the online demo at [here](https://clean-architecture-react-todo-app.vercel.app/)
+You can find the online demo at [here](https://todo-app-onesine.vercel.app/)
 
 ## Installation
 
