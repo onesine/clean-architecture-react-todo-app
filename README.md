@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://clean-architecture-react-todo-app.vercel.app/" target="_blank">
-      <img alt="React Tailwindcss Datepicker" width="100" style="border-radius: 100%;" src="https://raw.githubusercontent.com/onesine/clean-architecture-react-todo-app/master/public/screenshot-2023-12-25-at-16.41.56.png?raw=true">
+      <img alt="React Tailwindcss Datepicker" src="https://raw.githubusercontent.com/onesine/clean-architecture-react-todo-app/master/public/screenshot-2023-12-25-at-16.41.56.png?raw=true">
     </a><br><br>
     Welcome to the Task Management application, a project highlighting the practical application of the fundamental principles of <strong>Clean Architecture</strong> and the <strong>MVVM</strong> model in the context of React. This project uses a simple task list as an example to illustrate how these architectural concepts can be integrated into Front-End application development like React.
 </p>
