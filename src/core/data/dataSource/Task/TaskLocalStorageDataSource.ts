@@ -1,0 +1,95 @@
+import TaskDataSource from "@dataSource/Task/TaskDataSource.ts";
+import Task from "@model/Task.ts";
+import { singleton } from "tsyringe";
+
+@singleton()
+class TaskLocalStorageDataSource implements TaskDataSource {
+    #STORAGE_KEY = "tasks";
+
+    getTasks() {
+        return new Promise<Task[]>(resolve => {
+            resolve(this.getItems());
+        });
+    }
+
+    createTask(value: string) {
+        return new Promise<Task>(resolve => {
+            const tasks = this.getItems();
+            const newTask = {
+                id: Date.now().toString(),
+                title: value,
+                isComplete: false
+            };
+
+            this.setItems([newTask, ...tasks]);
+
+            resolve(newTask);
+        });
+    }
+
+    updateTask(id: string, value: string) {
+        return new Promise<Task>((resolve, reject) => {
+            const task = this.getItem(id);
+
+            if (task) {
+                task.title = value;
+
+                this.setItems(
+                    this.getItems().map(item => {
+                        return item.id === task.id ? task : item;
+                    })
+                );
+
+                resolve(task);
+            } else {
+                reject("Task not found");
+            }
+        });
+    }
+
+    markAsRead(id: string) {
+        return new Promise<Task>((resolve, reject) => {
+            const task = this.getItem(id);
+
+            if (task) {
+                task.isComplete = !task.isComplete;
+                this.setItems(
+                    this.getItems().map(item => {
+                        return item.id === task.id ? task : item;
+                    })
+                );
+                resolve(task);
+            } else {
+                reject("Task not found");
+            }
+        });
+    }
+
+    removeTask(id: string) {
+        return new Promise<Task>((resolve, reject) => {
+            const task = this.getItem(id);
+
+            if (!task) {
+                reject("Task not found");
+            } else {
+                this.setItems(this.getItems().filter(item => item.id !== id));
+                resolve(task);
+            }
+        });
+    }
+
+    getItems() {
+        const raw = localStorage.getItem(this.#STORAGE_KEY);
+        return raw === null ? [] : (JSON.parse(raw) as Task[]);
+    }
+
+    setItems(items: Task[]) {
+        localStorage.setItem(this.#STORAGE_KEY, JSON.stringify(items));
+    }
+
+    getItem(id: string) {
+        return this.getItems().find(item => item.id === id);
+    }
+}
+
+export default TaskLocalStorageDataSource;
