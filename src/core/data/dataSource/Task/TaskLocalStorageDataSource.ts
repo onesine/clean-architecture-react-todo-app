@@ -55,21 +55,21 @@ class TaskLocalStorageDataSource implements TaskDataSource {
 
     markAsRead(id: string) {
         return new Promise<Task>((resolve, reject) => {
-            setTimeout(() => {
-                const task = this.getItem(id);
+            // setTimeout(() => {
+            const task = this.getItem(id);
 
-                if (task) {
-                    task.isComplete = !task.isComplete;
-                    this.setItems(
-                        this.getItems().map(item => {
-                            return item.id === task.id ? task : item;
-                        })
-                    );
-                    resolve(task);
-                } else {
-                    reject("Task not found");
-                }
-            }, 3000);
+            if (task) {
+                task.isComplete = !task.isComplete;
+                this.setItems(
+                    this.getItems().map(item => {
+                        return item.id === task.id ? task : item;
+                    })
+                );
+                resolve(task);
+            } else {
+                reject("Task not found");
+            }
+            // }, 3000);
         });
     }
 
