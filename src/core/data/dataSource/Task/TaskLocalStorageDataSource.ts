@@ -8,47 +8,54 @@ class TaskLocalStorageDataSource implements TaskDataSource {
 
     getTasks() {
         return new Promise<Task[]>(resolve => {
-            resolve(this.getItems());
+            setTimeout(() => {
+                resolve(this.getItems());
+            }, 3000);
         });
     }
 
     createTask(value: string) {
         return new Promise<Task>(resolve => {
-            const tasks = this.getItems();
-            const newTask = {
-                id: Date.now().toString(),
-                title: value,
-                isComplete: false
-            };
+            setTimeout(() => {
+                const tasks = this.getItems();
+                const newTask = {
+                    id: Date.now().toString(),
+                    title: value,
+                    isComplete: false
+                };
 
-            this.setItems([newTask, ...tasks]);
+                this.setItems([newTask, ...tasks]);
 
-            resolve(newTask);
+                resolve(newTask);
+            }, 3000);
         });
     }
 
     updateTask(id: string, value: string) {
         return new Promise<Task>((resolve, reject) => {
-            const task = this.getItem(id);
+            setTimeout(() => {
+                const task = this.getItem(id);
 
-            if (task) {
-                task.title = value;
+                if (task) {
+                    task.title = value;
 
-                this.setItems(
-                    this.getItems().map(item => {
-                        return item.id === task.id ? task : item;
-                    })
-                );
+                    this.setItems(
+                        this.getItems().map(item => {
+                            return item.id === task.id ? task : item;
+                        })
+                    );
 
-                resolve(task);
-            } else {
-                reject("Task not found");
-            }
+                    resolve(task);
+                } else {
+                    reject("Task not found");
+                }
+            }, 3000);
         });
     }
 
     markAsRead(id: string) {
         return new Promise<Task>((resolve, reject) => {
+            // setTimeout(() => {
             const task = this.getItem(id);
 
             if (task) {
@@ -62,11 +69,13 @@ class TaskLocalStorageDataSource implements TaskDataSource {
             } else {
                 reject("Task not found");
             }
+            // }, 3000);
         });
     }
 
     removeTask(id: string) {
         return new Promise<Task>((resolve, reject) => {
+            // setTimeout(() => {
             const task = this.getItem(id);
 
             if (!task) {
@@ -75,6 +84,7 @@ class TaskLocalStorageDataSource implements TaskDataSource {
                 this.setItems(this.getItems().filter(item => item.id !== id));
                 resolve(task);
             }
+            // }, 3000);
         });
     }
 

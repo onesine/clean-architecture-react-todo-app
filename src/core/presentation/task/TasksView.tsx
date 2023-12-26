@@ -1,4 +1,5 @@
 import PlusIcon from "@icon/PlusIcon.tsx";
+import Loading from "@ui/Loading.tsx";
 import { useEffect } from "react";
 
 import TaskForm from "./TaskForm.tsx";
@@ -20,7 +21,8 @@ const TasksView = () => {
         formLoading,
         removeTask,
         toggleTasksStatus,
-        updateEditTask
+        updateEditTask,
+        listLoading
     } = TaskViewModel();
 
     useEffect(() => {
@@ -40,16 +42,24 @@ const TasksView = () => {
                 </button>
             </div>
 
-            <div className="w-full h-[500px] overflow-y-scroll bg-slate-100 rounded-xl border border-gray-200/50 py-3 px-2 space-y-5 hidesScrollbar">
-                {tasks.map((item, index) => (
-                    <TaskItem
-                        key={index}
-                        item={item}
-                        onClick={() => toggleTasksStatus(item.id)}
-                        onEdit={() => updateEditTask(item)}
-                        onRemove={() => removeTask(item.id)}
-                    />
-                ))}
+            <div className="relative h-[500px] rounded-xl overflow-hidden">
+                <div className="w-full h-full overflow-y-scroll bg-slate-100 border border-gray-200/50 py-3 px-2 space-y-5 hidesScrollbar">
+                    {tasks.map((item, index) => (
+                        <TaskItem
+                            key={index}
+                            item={item}
+                            onClick={() => toggleTasksStatus(item.id)}
+                            onEdit={() => updateEditTask(item)}
+                            onRemove={() => removeTask(item.id)}
+                        />
+                    ))}
+                </div>
+
+                {listLoading && (
+                    <div className="h-[500px] w-full absolute bg-black/30 top-0 right-0 flex items-center justify-center">
+                        <Loading className="h-12 w-12 text-white" />
+                    </div>
+                )}
             </div>
 
             <TaskForm
