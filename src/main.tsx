@@ -6,7 +6,8 @@ import App from "./App.tsx";
 import "./index.css";
 import { TASKS } from "./constants";
 
-localStorage.setItem("tasks", JSON.stringify(TASKS));
+const tasks = localStorage.getItem("tasks");
+if (!tasks) localStorage.setItem("tasks", JSON.stringify(TASKS));
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

@@ -40,7 +40,7 @@
             "@ioc/*": ["./src/core/ioc/*"],
             "@presentation/*": ["./src/core/presentation/*"],
             "@libs/*": ["./src/libs/*"],
-            "@hooks/*": ["./src/hooks/*"],
+            "@hooks/*": ["./src/hooks/*"]
         }
     },
     "include": ["src", "**/*.ts"],
