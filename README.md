@@ -37,7 +37,7 @@
 
 ## Online Demo
 
-You can find the online demo at [here](https://todo-app-onesine.vercel.app/)
+You can find the online demo at [here](https://clean-architecture-react-todo-app.vercel.app/)
 
 ## Installation
 
