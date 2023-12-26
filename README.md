@@ -22,10 +22,10 @@
 -   ✅ Using dependency injection
 -   ✅ Using the IoC container to resolve class and interface
 -   ✅ Using localstorage as a datasource
+-   ✅ Loading (fetching, create, update, remove)
 -   ⬜ Confirm remove
 -   ⬜ Toast
 -   ⬜ Task filter (complete, incomplete, category)
--   ⬜ Loading (fetching, submission)
 -   ⬜ Task category
 -   ⬜ Unit test (vitest + react testing library)
 -   ⬜ Integration or end 2 end test (cypress)
